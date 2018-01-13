@@ -2,11 +2,11 @@
 /**
  * 根据用户信息，返回跳转地址
  */
-export function getRedirectPath({type, avator}) {
+export function getRedirectPath({type, avatar}) {
   // user.type boss genius
   // user.avator /bossinfo geniusinfo
   let url = (type === 'boss') ? '/boss' : '/genius'
-  if (!avator) {
+  if (!avatar) {
     url += 'info'
   }
   return url

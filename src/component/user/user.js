@@ -17,7 +17,6 @@ class User extends React.Component {
     alert('注销', '确认退出登录吗？', [
       {
         text: '取消', onPress: () => {
-        console.log('取消')
       }
       },
       {
@@ -33,7 +32,6 @@ class User extends React.Component {
     const props = this.props
     const Item = List.Item;
     const Brief = Item.Brief;
-    console.log(props)
     return props.user ? (
       <div>
         <Result
@@ -47,7 +45,7 @@ class User extends React.Component {
             multipleLine
           >
             {props.title}
-            {props.desc.split('\n').map(v => <Brief key={v}>{v}</Brief>)}
+            {props.desc.split('\n').map((v,i) => <Brief key={i}>{v}</Brief>)}
             {props.money ? <Brief>薪资：{props.money}</Brief> : null}
           </Item>
         </List>

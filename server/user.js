@@ -50,7 +50,6 @@ Router.get('/info', (req, res) => {
       return res.json({code: 1, msg: '后端出错了'})
     }
     if (doc) {
-      console.log(doc)
       return res.json({code: 0, data: doc})
     }
   })
@@ -100,7 +99,6 @@ Router.post('/update', (req, res) => {
       user: doc.user,
       type: doc.type
     }, body)
-    console.log(doc)
     return res.json({code: 0, data})
   })
 })
@@ -113,7 +111,6 @@ Router.post('/readmsg', (req, res) => {
   const {from} = req.body
   Chat.update({from, to:userid}, {'$set': {read: true}}, {'multi': true},(err, doc)=>{
     if (!err) {
-      console.log(doc)
       return res.json({code:0, num: doc.nModified})
     }
     return res.json({code:0, msg:'修改失败'})
